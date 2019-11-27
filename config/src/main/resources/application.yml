@@ -1,3 +1,5 @@
+my:
+  ip: localhost
 spring:
   application:
     name: config
@@ -10,14 +12,18 @@ spring:
           default-label: master
   rabbitmq:
     host: localhost
-    port: 5672
     username: admin
     password: 123456
+    port: 5672
 server:
   port: 9001
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.31.41:8761/eureka,http://192.168.31.41:8762/eureka
-
+      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 

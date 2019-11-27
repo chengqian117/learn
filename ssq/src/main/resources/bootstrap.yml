@@ -1,9 +1,9 @@
-server:
-  port: 8001
+my:
+  ip: localhost
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
+      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
 spring:
   application:
     name: ssq
@@ -11,9 +11,12 @@ spring:
     active: test
   cloud:
     config:
-      name: ssq
-      profile: test
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
       label: master
       discovery:
         enabled: true
         service-id: config
+    bus:
+      trace:
+        enabled: true
