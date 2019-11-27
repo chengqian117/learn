@@ -1,9 +1,1 @@
-ttt: hello word! 你好啊!废猿!1
-spring:
-  cloud:
-    bus:
-      trace:
-        enabled: true
-managment:
-  security:
-    enabled: false
+ttt: hello word! 你好啊!废猿!12
