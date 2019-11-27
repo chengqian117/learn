@@ -1,10 +1,5 @@
-ttt: hello word! 你好啊!废猿
+ttt: hello word! 你好啊!废猿!
 spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: 123456
   cloud:
     bus:
       trace:
