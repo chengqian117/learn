@@ -1,0 +1,14 @@
+ttt: hello word! 你好啊
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456
+  cloud:
+    bus:
+      trace:
+        enabled: true
+managment:
+  security:
+    enabled: false
