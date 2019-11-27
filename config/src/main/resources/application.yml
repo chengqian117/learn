@@ -5,12 +5,19 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/chengqian117/learn
+          search-paths: config-repo
+          default-label: master
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456
 server:
   port: 9001
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
+      defaultZone: http://192.168.31.41:8761/eureka,http://192.168.31.41:8762/eureka
 
 

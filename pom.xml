@@ -18,7 +18,15 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <skipTests>true</skipTests>
     </properties>
+    <modules>
+        <module>eureka</module>
+        <module>config</module>
+        <module>ssq</module>
+    </modules>
 
     <dependencies>
         <dependency>
