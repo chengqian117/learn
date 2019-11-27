@@ -1,1 +1,12 @@
-ttt: hello word! 你好啊!废猿!12-35-re
+ttt: hello word! 你好啊!
+server:
+  port: 8001
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456
+managment:
+  security:
+    enabled: false
