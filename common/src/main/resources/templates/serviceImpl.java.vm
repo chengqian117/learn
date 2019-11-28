@@ -1,0 +1,72 @@
+package ${package.ServiceImpl};
+
+import born.common.utils.PageUtils;
+import born.common.utils.Query;
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${superServiceImplClassPackage};
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+/**
+ * <p>
+ * $!{table.comment} 服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+#if(${kotlin})
+open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
+
+}
+#else
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+        @Override
+        public PageUtils queryPage(Map<String, Object> params) {
+            String paramKey = (String)params.get("paramKey");
+            IPage<${entity}> page = this.page(
+                new Query<${entity}>().getPage(params),
+                new QueryWrapper<${entity}>()
+                .like(StringUtils.isNotBlank(paramKey),"unitName", paramKey)
+        //.eq("status", 1)
+        );
+
+        return new PageUtils(page);
+        }
+}
+#end
+//页面表格
+/**
+    #foreach($field in ${table.fields})
+        #if(${field.keyFlag})
+         { label: 'ID', name: '${field.propertyName}', width: 60, align: 'center', key: true },
+        #end
+     { label: '${field.comment}', name: '${field.propertyName}', width: 200, align: 'center' },
+    #end
+
+ //页面修改table
+
+    #foreach($field in ${table.fields})
+        #if(${field.keyFlag})
+         <tr>
+         <th>ID</th>
+         <td>
+         <input type="text"  class="form-control required" v-model="ent.${field.propertyName}" placeholder="请输入ID" />
+         </td>
+         </tr>
+        #end
+     <tr>
+     <th>${field.comment}</th>
+     <td>
+     <input type="text" class="form-control" v-model="ent.${field.propertyName}" />
+     </td>
+     </tr>
+    #end
+ **/

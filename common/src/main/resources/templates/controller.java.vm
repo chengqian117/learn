@@ -1,0 +1,131 @@
+package ${package.Controller};
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import born.common.utils.PageUtils;
+import born.common.utils.Query;
+import born.common.utils.R;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import ${package.Service}.${table.serviceName};
+
+#if(${restControllerStyle})
+import org.springframework.web.bind.annotation.RestController;
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+
+#end
+
+/**
+ * <p>
+ * $!{table.comment} 前端控制器
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    @Autowired
+    ${table.serviceName} i${table.serviceName};
+
+    private final String messageBlock="$!{table.comment}";
+
+    @GetMapping("/listPage")
+    //@RequiresPermissions("${table.name}:${entity}:listPage")
+    @ApiOperation(value = "查询" + messageBlock, notes = "GET", httpMethod = "GET")
+    public R listPage(@RequestParam Map<String, Object> params){
+            PageUtils page=i${table.serviceName}.queryPage(params);
+    
+            return R.ok().put("page",page);
+            }
+    
+    /**
+     * 列表
+     */
+    @GetMapping("/list")
+    //@RequiresPermissions("${table.name}:${entity}:list")
+    @ApiOperation(value = "查询列表" + messageBlock, notes = "GET", httpMethod = "GET")
+    public List<${entity}> list(){
+            List<${entity}> ret=i${table.serviceName}.list(null);
+    
+            return ret;
+            }
+    
+    /**
+     * 信息
+     */
+    @GetMapping("/info/{id}")
+    //@RequiresPermissions("${table.name}:${entity}:info")
+    @ApiOperation(value = "查询详情" + messageBlock, notes = "GET", httpMethod = "GET")
+    public R info(@PathVariable("id") Long id){
+            ${entity} ent=i${table.serviceName}.getById(id);
+    
+            return R.ok().put("data",ent);
+            }
+    
+    /**
+     * 新增
+     */
+    @SysLog(messageBlock + "新增示例")
+    @PostMapping("/add")
+    //@RequiresPermissions("${table.name}:${entity}:add")
+    @ApiOperation(value = "新增" + messageBlock, notes = "POST", httpMethod = "POST")
+    public R add(@RequestBody ${entity} ent){
+            //long id = getMaxID()+1;
+            //ent.setUnitId(unitService.getMaxId()+1);
+        i${table.serviceName}.save(ent);
+    
+            return R.okAdd(messageBlock);
+            }
+    
+    /**
+     * 修改
+     */
+    @SysLog(messageBlock + "修改示例")
+    @PostMapping("/edit")
+    //@RequiresPermissions("${table.name}:${entity}:edit")
+    @ApiOperation(value = "修改" + messageBlock, notes = "POST", httpMethod = "POST")
+    public R edit(@RequestBody ${entity} ent){
+            //ValidatorUtils.validateEntity(ent);
+        i${table.serviceName}.updateById(ent);
+            return R.okEdit(messageBlock);
+            }
+    
+    /**
+     * 删除
+     */
+    @SysLog(messageBlock + "删除示例")
+    @PostMapping("/delete")
+    //@RequiresPermissions("${table.name}:${entity}:delete")
+    @ApiOperation(value = "删除" + messageBlock, notes = "POST", httpMethod = "POST")
+    public R delete(@RequestBody Long...ids){
+        i${table.serviceName}.removeByIds(Arrays.asList(ids));
+    
+            return R.okDel(messageBlock);
+            }
+}
+
+#end

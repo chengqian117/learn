@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fy.cq.ssq.modules.data.dao.HourDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fy.cq.ssq.modules.data.entity.HourData">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="hour" property="hour" />
+        <result column="version" property="version" />
+        <result column="sum_data" property="sumData" />
+        <result column="remark" property="remark" />
+        <result column="count_data" property="countData" />
+        <result column="avg_data" property="avgData" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, hour, version, sum_data AS sumData, remark, count_data AS countData, avg_data AS avgData
+    </sql>
+
+
+    <insert id="insertSumMinuteDataByUserAndDay" parameterType="java.lang.String" >
+        INSERT INTO user_hour_data (user_id,hour,sum_data,count_data,avg_data,version)
+        select #{userId},#{date},SUM(a.sum_data),count(1),ROUND(AVG(a.sum_data),2) ,"1"
+        from user_minute_data a where a.user_id=#{userId} and a.minute BETWEEN CONCAT(#{date},':00') and CONCAT(#{date},':59') and a.version='1';
+    </insert>
+
+</mapper>

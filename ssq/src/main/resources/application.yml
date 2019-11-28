@@ -1,7 +1,1 @@
-server:
-  port: 8001
-spring:
-  application:
-    name: ssq
-  profiles:
-    active: test
+

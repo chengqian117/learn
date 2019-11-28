@@ -6,7 +6,6 @@
         <groupId>com.fy.cq</groupId>
         <artifactId>learn</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fy.cq</groupId>
     <artifactId>eureka</artifactId>
