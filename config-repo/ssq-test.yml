@@ -52,26 +52,6 @@ spring:
       testOnBorrow: false
       testOnRetrun: false
 
-  swagger:
-    enabled: true
-    title: 狗子.gif
-    description: 快乐就完事了
-    version: 1.0
-    contact:
-      name: 新世界的大门
-    base-package: com.fy.cq.ssq.modules
-    #全局参数,比如Token之类的验证信息可以全局话配置
-    global-operation-parameters:
-      -   description: '验证toke'
-          modelRef: 'string'
-          name: 'token'
-          parameter-type: 'header'
-          required: false
-    groups:
-      basic-group:
-        base-package: com.fy.cq.ssq.modules.data
-      test-group:
-        base-package: com.fy.cq.ssq.modules.test
 #mybatis
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
