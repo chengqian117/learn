@@ -1,6 +1,6 @@
 ttt: hello word! 你好啊!
 server:
-  port: 8001
+  #port: 8001
   servlet:
     context-path: /ssq
 logging:
