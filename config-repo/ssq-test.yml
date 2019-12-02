@@ -3,8 +3,6 @@ server:
   port: 8001
   servlet:
     context-path: /ssq
-  tomcat:
-    uri-encoding=UTF-8:
 logging:
   config: classpath:logback.xml
 spring:
@@ -74,11 +72,6 @@ spring:
         base-package: com.fy.cq.ssq.modules.data
       test-group:
         base-package: com.fy.cq.ssq.modules.test
-  http:
-    encoding:
-      force: true
-      enabled: true
-      charset: UTF-8
   messages:
     encoding: UTF-8
 #mybatis
