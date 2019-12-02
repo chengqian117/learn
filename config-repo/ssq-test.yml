@@ -72,8 +72,6 @@ spring:
         base-package: com.fy.cq.ssq.modules.data
       test-group:
         base-package: com.fy.cq.ssq.modules.test
-  messages:
-    encoding: UTF-8
 #mybatis
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
