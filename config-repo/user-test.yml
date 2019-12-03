@@ -1,2 +1,14 @@
 userRest: USER/user
 ssqRest: SSQ/ssq
+my:
+  ip: 39.106.20.60
+logging:
+  config: classpath:logback.xml
+spring:
+  rabbitmq:
+    host: ${my.ip}
+    port: 5672
+    username: admin
+    password: 123456
+  jackson:
+    time-zone: GMT+8
