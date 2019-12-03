@@ -1,9 +1,3 @@
-my:
-  ip: localhost
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
 server:
   #port: 8001
   servlet:
@@ -24,3 +18,10 @@ spring:
     bus:
       trace:
         enabled: true
+
+my:
+  ip: localhost
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka

@@ -1,5 +1,3 @@
-my:
-  ip: localhost
 spring:
   application:
     name: config
@@ -10,17 +8,10 @@ spring:
           uri: https://github.com/chengqian117/learn
           search-paths: config-repo
           default-label: master
-  rabbitmq:
-    host: localhost
-    username: admin
-    password: 123456
-    port: 5672
+  profiles:
+    active: prod
 server:
   port: 9001
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
 management:
   endpoints:
     web:

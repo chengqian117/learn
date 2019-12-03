@@ -1,13 +1,12 @@
-server:
-  port: 8761
-spring:
-  application:
-    name: eureka
-  profiles:
-    active: prod
 my:
-  ip: localhost
+  ip: 39.106.20.60
 eureka:
   client:
     service-url:
       defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
+spring:
+  rabbitmq:
+    host: ${my.ip}
+    username: admin
+    password: 123456
+    port: 5672

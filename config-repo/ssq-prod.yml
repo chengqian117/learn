@@ -1,4 +1,4 @@
-ttt: hello word! 你好啊!
+ttt: hello word! 生产环境！
 my:
   ip: 39.106.20.60
 logging:
@@ -14,9 +14,9 @@ spring:
 
   datasource:
     #url: jdbc:oracle:thin:@192.168.0.1:1521:a
-    url: jdbc:mysql://127.0.0.1:3306/demo
+    url: jdbc:mysql://${my.ip}:13307/seq_test
     username: root
-    password: 123456asd
+    password: 34124127_Asd
     #214环境
     #url: jdbc:mysql://127.0.0.1:3306/datauser
     #username: root

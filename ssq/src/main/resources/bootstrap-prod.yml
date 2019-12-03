@@ -1,12 +1,5 @@
-server:
-  port: 8761
-spring:
-  application:
-    name: eureka
-  profiles:
-    active: prod
 my:
-  ip: localhost
+  ip: 39.106.20.60
 eureka:
   client:
     service-url:
