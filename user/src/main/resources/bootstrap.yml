@@ -7,10 +7,10 @@ eureka:
 server:
   #port: 8001
   servlet:
-    context-path: /ssq
+    context-path: /user
 spring:
   application:
-    name: ssq
+    name: user
   profiles:
     active: test
   cloud:

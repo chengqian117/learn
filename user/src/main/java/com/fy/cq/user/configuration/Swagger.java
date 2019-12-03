@@ -1,4 +1,4 @@
-package com.fy.cq.ssq.configuration;
+package com.fy.cq.user.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class Swagger {
     /**
      * UI页面显示信息
      */
-    private final String SWAGGER2_API_BASEPACKAGE = "com.fy.cq.ssq.modules";
+    private final String SWAGGER2_API_BASEPACKAGE = "com.fy.cq.user.modules";
     private final String SWAGGER2_API_TITLE = "狗子.gif";
     private final String SWAGGER2_API_DESCRIPTION = "快乐就完事了";
     private final String SWAGGER2_API_CONTACT = "新世界的大门";
@@ -63,5 +63,5 @@ public class Swagger {
         pars.add(tokenPar.build());
         return pars;
     }
-
+	
 }

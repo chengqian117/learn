@@ -1,8 +1,5 @@
 ttt: hello word! 你好啊!
-server:
-  #port: 8001
-  servlet:
-    context-path: /ssq
+
 logging:
   config: classpath:logback.xml
 spring:

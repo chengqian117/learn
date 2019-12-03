@@ -21,4 +21,9 @@ public class TestController {
     public String ttt(){
         return ttt;
     }
+
+    @GetMapping("rt")
+    public String rt(){
+        return "1";
+    }
 }
