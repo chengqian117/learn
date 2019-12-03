@@ -1,10 +1,5 @@
 logging:
   config: classpath:logback.xml
 spring:
-  rabbitmq:
-    host: 39.106.20.60
-    port: 5672
-    username: admin
-    password: 123456
   jackson:
     time-zone: GMT+8
