@@ -1,0 +1,9 @@
+my:
+#  ip: localhost
+  ip: 39.106.20.60
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
+
+
