@@ -14,9 +14,9 @@ spring:
 
   datasource:
     #url: jdbc:oracle:thin:@192.168.0.1:1521:a
-    url: jdbc:mysql://${my.ip}:13307/seq_test
+    url: jdbc:mysql://127.0.0.1:3306/demo
     username: root
-    password: 34124127_Asd
+    password: 123456asd
     #214环境
     #url: jdbc:mysql://127.0.0.1:3306/datauser
     #username: root

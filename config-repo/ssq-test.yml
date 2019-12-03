@@ -1,6 +1,7 @@
 ttt: hello word! 你好啊!
 my:
-  ip: 39.106.20.60
+#  ip: 39.106.20.60
+ ip: localhost
 logging:
   config: classpath:logback.xml
 spring:
