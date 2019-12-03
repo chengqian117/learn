@@ -1,12 +1,12 @@
 ttt: hello word! 你好啊!
 my:
 #  ip: 39.106.20.60
- ip: localhost
+ ip2: localhost
 logging:
   config: classpath:logback.xml
 spring:
   rabbitmq:
-    host: ${my.ip}
+    host: ${my.ip2}
     port: 5672
     username: admin
     password: 123456

@@ -1,10 +1,12 @@
+my:
+  ip2: localhost
 logging:
   config: classpath:logback.xml
 spring:
   jackson:
     time-zone: GMT+8
   rabbitmq:
-    host: localhost
+    host: ${my.ip2}
 #    host: 39.106.20.60
     port: 5672
     username: admin
