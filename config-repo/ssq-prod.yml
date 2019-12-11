@@ -1,11 +1,11 @@
-ttt: hello word! 生产环境！
+ttt: hello word! 生产环境！${my.ip2}
 my:
   ip2: 39.106.20.60
 logging:
   config: classpath:logback.xml
 spring:
   rabbitmq:
-    host: ${my.ip2}
+    host: 39.106.20.60
     port: 5672
     username: admin
     password: 123456
