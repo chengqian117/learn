@@ -6,8 +6,8 @@ spring:
   jackson:
     time-zone: GMT+8
   rabbitmq:
-    host: ${my.ip2}
-#    host: 39.106.20.60
+#    host: ${my.ip2}
+    host: 39.106.20.60
     port: 5672
     username: admin
     password: 123456
