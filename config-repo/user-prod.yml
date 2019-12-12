@@ -11,3 +11,13 @@ spring:
     port: 5672
     username: admin
     password: 123456
+SSQ:
+  ribbon:
+    eurake: true
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
+    MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+    MaxAutoRetries: 3 # 对当前实例的重试次数
+ribbon:
+  ConnectTimeout: 250 # Ribbon的连接超时时间
+  ReadTimeout: 1000  # Ribbon的数据读取超时时间
