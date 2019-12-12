@@ -1,9 +1,3 @@
-my:
-  ip: localhost
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
 server:
   #port: 8001
   servlet:
@@ -12,7 +6,7 @@ spring:
   application:
     name: user
   profiles:
-    active: test
+    active: prod
   cloud:
     config:
       name: ${spring.application.name}
@@ -24,3 +18,15 @@ spring:
     bus:
       trace:
         enabled: true
+    loadbalancer:
+      retry:
+        enabled: true # 开启Spring Cloud的重试功能
+SSQ:
+  ribbon:
+    eurake: true
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    ConnectTimeout: 250 # Ribbon的连接超时时间
+    ReadTimeout: 1000 # Ribbon的数据读取超时时间
+    OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
+    MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+    MaxAutoRetries: 3 # 对当前实例的重试次数

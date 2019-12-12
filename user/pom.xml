@@ -36,6 +36,16 @@
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--ribbon 负载均衡和重试-->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <version>${cloud.version}</version>
+        </dependency>
         <!--spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,5 +1,6 @@
 my:
-  ip: 39.106.20.60
+#  ip: 39.106.20.60
+ ip: localhost
 eureka:
   client:
     service-url:

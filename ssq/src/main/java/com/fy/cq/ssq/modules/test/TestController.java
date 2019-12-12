@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("test")
-@Profile("test")
+//@Profile("test")
 @RefreshScope
 public class TestController {
 
@@ -24,6 +24,13 @@ public class TestController {
 
     @GetMapping("rt")
     public String rt(){
-        return "1";
+        System.out.println("------------------");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "2";
+        //throw new RuntimeException("awsl");
     }
 }

@@ -1,6 +1,11 @@
 my:
-  ip: localhost
+  ip: 127.0.0.1
 eureka:
   client:
     service-url:
       defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${my.ip}:${server.port}
+    hostname: ${my.ip}:${server.port}
+    ip-address: ${my.ip}

@@ -6,7 +6,7 @@ spring:
   application:
     name: ssq
   profiles:
-    active: test
+    active: prod
   cloud:
     config:
       name: ${spring.application.name}
@@ -19,9 +19,3 @@ spring:
       trace:
         enabled: true
 
-my:
-  ip: localhost
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${my.ip}:8761/eureka,http://${my.ip}:8762/eureka
